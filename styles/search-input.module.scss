@@ -1,0 +1,90 @@
+.wrapper {
+  width: 100%;
+	display: inline-block;
+  position: relative;
+  
+  .searchButton {
+    width: 10%;
+  }
+
+	.textInput {
+		width: 90%;
+		display: inline-block;
+		color: #000;
+
+		&:focus {
+			outline: none;
+		}
+
+	}
+
+	.clear {
+		color: #ccc;
+		cursor: pointer;
+		height: 8px;
+		margin: 0 0 0 -33px;
+		padding: 8px;
+		vertical-align: middle;
+		width: 8px;
+	}
+
+	.overlay {
+		background-color: #F1F1F1;
+		padding-top: 8px;
+		position: absolute;
+		z-index: 1;
+	}
+
+	.suggestions {
+		animation: open 200ms ease forwards 1;
+		background-color: #FFF;
+		border-radius: '5px';
+		border: 1px solid rgba(0, 0, 0, .15);
+		box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+		left: 0;
+		max-width: inherit; // if the parent container has a max-width, use that max width on the child also.
+		min-width: 100px;
+		overflow: auto;
+		position: absolute;
+		//top: 0;
+		transform-origin: 0 0;
+		width: 100%;
+		z-index: 1;
+
+		&.overlay {
+			background-color: transparent;
+		}
+
+		ul {
+			margin: 0;
+			padding: 5px 0;
+		}
+
+		.item {
+			border-top: 1px solid #cccccc;
+			cursor: default;
+			display: block;
+			margin-top: 8px;
+			overflow: hidden;
+			padding-top: 8px;
+			padding: 3px 13px;
+			text-align: right;
+
+			&.highlighted {
+				background-color: blue;
+				color: white;
+				outline: none;
+			}
+
+			.itemTitle {
+				max-width: 100%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+
+		}
+
+	}
+
+}

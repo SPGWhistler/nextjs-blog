@@ -1,38 +1,28 @@
-import Layout, { siteTitle } from './layout'
-import utilStyles from '../styles/utils.module.css'
 import style from '../styles/card.module.scss'
 import CardImage from './card-image';
 import Link from 'next/link'
 
-//import cx from 'classnames';
-
-//import style from './style.less';
-
-//import CardImage from '../../pieces/card-image';
-//import { getArticleUrl, isExternal, getAttribution } from '../../../lib/utils';
-
-//import { trackingProvider, trackProps, getTrackingAttributesForAsset, STANDARD_KEYS } from '@cube/track';
 //import { Truncate } from '@cube/blocks';
 
-export default function Card({asset}) {
+export default function Card({suggestion}) {
   return (
     <div className={style.quarterImageHorizontalCard}>
-      <Link href={`/posts/${asset.id}`} >
+      <Link href={`/posts/${suggestion.id}`} >
         <a>
           <div>
             <CardImage
-              asset={asset}
+              suggestion={suggestion}
             />
           </div>
           <div className={style.metadata}>
             <div className={style.title}>
-              {asset.title}
+              {suggestion.title}
             </div>
             <div className={style.attribution}>
-              {asset.attrib}
+              {suggestion.attrib}
             </div>
             <div className={style.summary}>
-              {asset.summary}
+              {suggestion.summary}
             </div>
           </div>
         </a>
