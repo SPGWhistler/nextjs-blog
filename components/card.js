@@ -16,13 +16,13 @@ export default function Card({suggestion}) {
           </div>
           <div className={style.metadata}>
             <div className={style.title}>
-              {suggestion.title}
+              {suggestion.best_book.title}
             </div>
             <div className={style.attribution}>
-              {suggestion.attrib}
+              {suggestion.best_book.author.name}
             </div>
             <div className={style.summary}>
-              {suggestion.summary}
+             no summary
             </div>
           </div>
         </a>

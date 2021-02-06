@@ -1,24 +1,27 @@
 import React from 'react'
 import SearchInput from './search-input'
 import Card from './card'
+import SuggestionsModel from '../models/suggestions'
+
+const suggestionsModel = new SuggestionsModel({ host: 'http://localhost:3001/search' });
 
 export default class Search extends React.Component {
   state = {
     suggestions: []
   }
-  onInput = (value) => {
-    let suggestions = [
-      {
-        title: `${value}`,
-        attrib: 'test attrib',
-        imageSrc: '/images/profile.jpg',
-        imageAlt: 'test image alt',
-        summary: 'test summary',
-        date: '2020-01-01'
-      }
-    ];
-    this.setState({ suggestions });
-
+  onInput = async (value) => {
+    if (!(value && value.trim())) {
+			return this.setState({ suggestions: [] });
+    }
+    try {
+      let res = await suggestionsModel.getSuggestions(value);
+      this.setState({
+        suggestions: res
+      });
+    } catch (err) {
+      this.setState({ suggestions: [] });
+      console.error('Got an error fetching search suggestions', err);
+    }
   }
   render () {
     return (
