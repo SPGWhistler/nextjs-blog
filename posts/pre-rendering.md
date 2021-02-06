@@ -1,5 +1,9 @@
 ---
 title: 'Two Forms of Pre-rendering'
+attrib: 'test attrib'
+imageSrc: '/images/profile.jpg'
+imageAlt: 'test image alt'
+summary: 'test summary'
 date: '2020-01-01'
 ---
 

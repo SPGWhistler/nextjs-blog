@@ -1,5 +1,9 @@
 ---
 title: 'When to Use Static Generation v.s. Server-side Rendering'
+attrib: 'test attrib'
+imageSrc: '/images/profile.jpg'
+imageAlt: 'test image alt'
+summary: 'test summary'
 date: '2020-01-02'
 ---
 
