@@ -1,14 +1,24 @@
 import React from 'react'
 import SearchInput from './search-input'
-import Card from './card'
+import SearchSuggestion from './search-suggestion'
 import SuggestionsModel from '../models/suggestions'
 
-const suggestionsModel = new SuggestionsModel({ host: 'http://localhost:3001/search' });
+const suggestionsModel = new SuggestionsModel({ host: 'http://localhost:3001/search-suggest' });
 
 export default class Search extends React.Component {
   state = {
     suggestions: []
   }
+  debounce(func) {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        timeout = null;
+        func(...args);
+      }, 250);
+    };
+  };
   onInput = async (value) => {
     if (!(value && value.trim())) {
 			return this.setState({ suggestions: [] });
@@ -26,9 +36,9 @@ export default class Search extends React.Component {
   render () {
     return (
       <>
-        <SearchInput onInput={this.onInput} />
+        <SearchInput onInput={this.debounce(this.onInput)} />
         <section>
-          {this.state.suggestions.map(suggestion => <Card suggestion={suggestion} />)}
+          {this.state.suggestions.map(suggestion => <SearchSuggestion suggestion={suggestion} />)}
         </section>
       </>
     )
