@@ -20,6 +20,7 @@ export default class SearchResults extends React.Component {
       await this.getResults();
     }
   }
+  
   componentDidMount = async () => {
     await this.getResults();
   }

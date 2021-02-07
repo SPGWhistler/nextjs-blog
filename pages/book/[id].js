@@ -35,8 +35,6 @@ export default class Book extends React.Component {
       console.error('Got an error fetching book result', err);
     }
   }
-  //const router = useRouter();
-  //const { id } = router.query;
   render () {
     return (
       <Layout>

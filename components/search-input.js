@@ -7,9 +7,28 @@ export default class SearchInput extends React.Component {
   state = {
     inputValue: ''
   }
+  static getInitialProps({query}) {
+    return {query};
+  }
   constructor(...props) {
     super(...props);
-    this.state.inputValue = getQueryParam('q') || '';
+    //this.state.inputValue = getQueryParam('q') || '';
+  }
+  componentDidUpdate(prevProps) {
+    //if (this.props.query) {
+    //  this.props;
+    //  prevProps;
+    //  debugger;
+    //}
+    /*
+    let q = getQueryParam('q');
+    if (q && this.state.inputValue !== q) {
+      this.setState({inputValue: q});
+    }
+    if (this.props.query.q !== prevProps.query.q) {
+      await this.getResults();
+    }
+    */
   }
   componentDidMount () {
     this.input.focus();
@@ -23,7 +42,7 @@ export default class SearchInput extends React.Component {
     this.props.history.push(`/search-results?q=${this.state.inputValue}`);
   }
 	handleKeyDown = (e) => {
-		let preventDefault = true;
+    let preventDefault = true;
 		if (e.keyCode === KEY_CODES.CARRIAGE_RETURN) {
 			this.handleSubmit();
 		}
