@@ -1,15 +1,13 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import Search from '../components/search'
+import Layout from '../components/layout'
+import styles from '../styles/index.module.scss'
 
 
 export default function Home({ allPostsData }) {
   return (
     <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <Search></Search>
+      <div className={styles.desc}>
+        Start typing above to look for books.
+      </div>
     </Layout>
   )
 }

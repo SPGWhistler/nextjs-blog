@@ -1,19 +1,19 @@
 import Head from 'next/head'
 import styles from '../styles/layout.module.css'
-import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import Search from '../components/search'
 
-const name = 'Anthony Petty'
-export const siteTitle = 'Next.js Sample Website'
+export const siteTitle = 'GoodReads Quick Search'
 
 export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>
+        <title>{siteTitle}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="A sample app to quickly search the GoodReads db."
         />
         <meta
           property="og:image"
@@ -25,29 +25,11 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        {home ? (
-          <>
-          hello
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <a>
-                <img
-                  src="/images/profile.jpg"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
-                  alt={name}
-                />
-              </a>
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
-              </Link>
-            </h2>
-          </>
-        )}
+        <>
+        {siteTitle}
+        </>
       </header>
+      <Search></Search>
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
