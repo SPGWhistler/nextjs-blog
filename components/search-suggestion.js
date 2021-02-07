@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function SearchSuggestion({suggestion}) {
   return (
-    <div>
+    <div className={style.suggestion}>
       <Link href={`/search?q=${suggestion}`} >
         <a>
           <div className={style.title}>

@@ -1,4 +1,5 @@
 import React from 'react'
+import style from '../styles/search.module.scss'
 import SearchInput from './search-input'
 import SearchSuggestion from './search-suggestion'
 import SuggestionsModel from '../models/suggestions'
@@ -37,9 +38,11 @@ export default class Search extends React.Component {
     return (
       <>
         <SearchInput onInput={this.debounce(this.onInput)} />
-        <section>
-          {this.state.suggestions.map(suggestion => <SearchSuggestion suggestion={suggestion} />)}
-        </section>
+        {this.state.suggestions.length > 0 &&
+          <section className={style.suggestions}>
+            {this.state.suggestions.map(suggestion => <SearchSuggestion suggestion={suggestion} />)}
+          </section>
+        }
       </>
     )
   }
