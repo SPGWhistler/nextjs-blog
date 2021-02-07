@@ -1,6 +1,7 @@
 import style from '../styles/card.module.scss'
 import CardImage from './card-image';
 import Link from 'next/link'
+import { truncateText } from '../lib/utils'
 
 export default function Card({result}) {
   return (
@@ -14,13 +15,10 @@ export default function Card({result}) {
           </div>
           <div className={style.metadata}>
             <div className={style.title}>
-              {result.title}
+              {truncateText(result.title, 50)}
             </div>
             <div className={style.attribution}>
-              {result.attr}
-            </div>
-            <div className={style.summary}>
-             no summary
+              Author: {result.attr}
             </div>
           </div>
         </a>

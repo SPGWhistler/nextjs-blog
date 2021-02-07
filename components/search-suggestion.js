@@ -1,5 +1,6 @@
 import style from '../styles/search-suggestion.module.scss'
 import Link from 'next/link'
+import { truncateText } from '../lib/utils'
 
 export default function SearchSuggestion({suggestion, onSearch}) {
   return (
@@ -7,7 +8,7 @@ export default function SearchSuggestion({suggestion, onSearch}) {
       <Link href={`/search-results?q=${suggestion}`} >
         <a onClick={onSearch} >
           <div className={style.title}>
-            {suggestion}
+            {truncateText(suggestion, 60)}
           </div>
         </a>
       </Link>

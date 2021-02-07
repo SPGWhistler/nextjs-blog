@@ -4,6 +4,7 @@ module.exports = {
     domains: [
       'i.gr-assets.com',
       's.gr-assets.com',
+      'covers.openlibrary.org',
     ],
   },
 }

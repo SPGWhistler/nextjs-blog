@@ -6,6 +6,8 @@ import style from '../styles/search-results.module.scss'
 
 const searchModel = new SearchModel({ host: 'http://localhost:3001/search' });
 
+//TODO Add in pagination
+
 export default class SearchResults extends React.Component {
   state = {
     results: []

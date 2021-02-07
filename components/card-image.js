@@ -6,8 +6,8 @@ export default function CardImage({result}) {
     <Image
       src={result.image}
       alt="no alt"
-      width={50}
-      height={50}
+      width={3}
+      height={4}
       layout="responsive"
     />
   );
