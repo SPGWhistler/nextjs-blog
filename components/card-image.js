@@ -1,14 +1,15 @@
-import style from '../styles/card-image.module.scss'
 import Image from 'next/image'
 
-export default function CardImage({result}) {
+export default function CardImage({url, alt, width, height, layout, unoptimized}) {
+  unoptimized = (unoptimized === false) ? false : true;
   return (
     <Image
-      src={result.image}
-      alt="no alt"
-      width={3}
-      height={4}
-      layout="responsive"
+      src={url}
+      alt={alt || ''}
+      width={width}
+      height={height}
+      layout={layout || 'responsive'}
+      unoptimized={unoptimized}
     />
   );
 }

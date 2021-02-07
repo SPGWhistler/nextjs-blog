@@ -5,12 +5,16 @@ import { truncateText } from '../lib/utils'
 
 export default function Card({result}) {
   return (
-    <div className={style.quarterImageHorizontalCard}>
+    <div className={style.card}>
       <Link href={`/book/${result.id}`} >
         <a>
           <div>
             <CardImage
-              result={result}
+              url={result.image}
+              alt={result.title}
+              width={3}
+              height={4}
+              layout='responsive'
             />
           </div>
           <div className={style.metadata}>

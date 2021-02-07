@@ -1,4 +1,11 @@
 .desc {
   margin-top: 2rem;
   text-align: center;
+
+  .bookCover {
+    max-width: 350px;
+    margin-bottom: 20px;
+    border: 1px solid gray;
+    box-shadow: 3px 3px 10px gray;
+  }
 }

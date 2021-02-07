@@ -2,7 +2,8 @@ import React from 'react'
 import Layout from '../../components/layout'
 import styles from '../../styles/book.module.scss'
 import BookModel from '../../models/book'
-import BookImage from '../../components/book-image';
+import CardImage from '../../components/card-image';
+import Author from '../../components/author'
 
 const bookModel = new BookModel({ host: 'http://localhost:3001/book' });
 
@@ -40,7 +41,20 @@ export default class Book extends React.Component {
       <Layout>
         {Object.keys(this.state.result).length > 0 &&
           <div className={styles.desc}>
-            <BookImage result={this.state.result} />
+            <div className={styles.bookCover}>
+              <CardImage
+                url={this.state.result.large_image}
+                alt={this.state.result.title}
+                width={3}
+                height={4}
+                layout='responsive'
+              />
+            </div>
+            {this.state.result.authors.length > 0 &&
+              <section className={styles.authors}>
+                {this.state.result.authors.map((author) => <Author author={author} key={author.author_id} />)}
+              </section>
+            }
           </div>
         }
       </Layout>
