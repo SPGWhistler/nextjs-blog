@@ -3,10 +3,14 @@ import Link from 'next/link'
 import { truncateText } from '../lib/utils'
 
 export default function SearchSuggestion({suggestion, onSearch}) {
+  const handleClick = () => {
+    onSearch && onSearch(suggestion);
+  };
+
   return (
     <div className={style.suggestion}>
       <Link href={`/search-results?q=${suggestion}`} >
-        <a onClick={onSearch} >
+        <a onClick={handleClick} >
           <div className={style.title}>
             {truncateText(suggestion, 60)}
           </div>

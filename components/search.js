@@ -9,12 +9,14 @@ const searchModel = new SearchModel({ host: 'http://localhost:3001/search-sugges
 
 export default class Search extends React.Component {
   state = {
-    suggestions: []
+    suggestions: [],
+    query: ''
   }
   clearSuggestions() {
     this.setState({ suggestions: [] });
   }
   onInput = async (value) => {
+    this.setState({'query': value});
     if (!(value && value.trim())) {
       return this.clearSuggestions();
     }
@@ -28,13 +30,14 @@ export default class Search extends React.Component {
       console.error('Got an error fetching search suggestions', err);
     }
   }
-  onSearch = () => {
+  onSearch = (value) => {
     this.clearSuggestions();
+    this.setState({query: value});
   }
   render () {
     return (
       <>
-        <SearchInput onInput={debounce(this.onInput)} />
+        <SearchInput value={this.state.query} onInput={debounce(this.onInput)} />
         {this.state.suggestions.length > 0 &&
           <section className={style.suggestions}>
             {this.state.suggestions.map((suggestion, id) => <SearchSuggestion suggestion={suggestion} key={id} onSearch={this.onSearch} />)}

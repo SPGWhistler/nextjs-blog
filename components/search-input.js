@@ -12,23 +12,12 @@ export default class SearchInput extends React.Component {
   }
   constructor(...props) {
     super(...props);
-    //this.state.inputValue = getQueryParam('q') || '';
+    this.state.inputValue = getQueryParam('q') || '';
   }
   componentDidUpdate(prevProps) {
-    //if (this.props.query) {
-    //  this.props;
-    //  prevProps;
-    //  debugger;
-    //}
-    /*
-    let q = getQueryParam('q');
-    if (q && this.state.inputValue !== q) {
-      this.setState({inputValue: q});
+    if (this.props.value !== prevProps.value) {
+      this.setState({inputValue: this.props.value});
     }
-    if (this.props.query.q !== prevProps.query.q) {
-      await this.getResults();
-    }
-    */
   }
   componentDidMount () {
     this.input.focus();
