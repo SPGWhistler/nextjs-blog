@@ -11,9 +11,12 @@ export default class Search extends React.Component {
   state = {
     suggestions: []
   }
+  clearSuggestions() {
+    this.setState({ suggestions: [] });
+  }
   onInput = async (value) => {
     if (!(value && value.trim())) {
-			return this.setState({ suggestions: [] });
+      return this.clearSuggestions();
     }
     try {
       let res = await searchModel.getResults(value);
@@ -21,9 +24,12 @@ export default class Search extends React.Component {
         suggestions: res
       });
     } catch (err) {
-      this.setState({ suggestions: [] });
+      this.clearSuggestions();
       console.error('Got an error fetching search suggestions', err);
     }
+  }
+  onSearch = () => {
+    this.clearSuggestions();
   }
   render () {
     return (
@@ -31,7 +37,7 @@ export default class Search extends React.Component {
         <SearchInput onInput={debounce(this.onInput)} />
         {this.state.suggestions.length > 0 &&
           <section className={style.suggestions}>
-            {this.state.suggestions.map((suggestion, id) => <SearchSuggestion suggestion={suggestion} key={id} />)}
+            {this.state.suggestions.map((suggestion, id) => <SearchSuggestion suggestion={suggestion} key={id} onSearch={this.onSearch} />)}
           </section>
         }
       </>
