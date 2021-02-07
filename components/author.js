@@ -1,4 +1,4 @@
-import style from '../styles/card.module.scss'
+import style from '../styles/author.module.scss'
 import CardImage from './card-image';
 import { truncateText } from '../lib/utils'
 

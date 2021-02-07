@@ -2,8 +2,10 @@ import React from 'react'
 import Layout from '../../components/layout'
 import styles from '../../styles/book.module.scss'
 import BookModel from '../../models/book'
-import CardImage from '../../components/card-image';
+import CardImage from '../../components/card-image'
 import Author from '../../components/author'
+import Description from '../../components/description'
+import Title from '../../components/title'
 
 const bookModel = new BookModel({ host: 'http://localhost:3001/book' });
 
@@ -40,15 +42,21 @@ export default class Book extends React.Component {
     return (
       <Layout>
         {Object.keys(this.state.result).length > 0 &&
-          <div className={styles.desc}>
-            <div className={styles.bookCover}>
-              <CardImage
-                url={this.state.result.large_image}
-                alt={this.state.result.title}
-                width={3}
-                height={4}
-                layout='responsive'
-              />
+          <div className={styles.book}>
+            <Title title={this.state.result.title} />
+            <div className={styles.row1}>
+              <div className={styles.bookCover}>
+                <CardImage
+                  url={this.state.result.large_image}
+                  alt={this.state.result.title}
+                  width={3}
+                  height={4}
+                  layout='responsive'
+                />
+              </div>
+              {this.state.result.desc.length > 0 &&
+                <Description className={styles.bookDesc} text={this.state.result.desc} />
+              }
             </div>
             {this.state.result.authors.length > 0 &&
               <section className={styles.authors}>

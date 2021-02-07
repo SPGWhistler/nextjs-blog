@@ -1,11 +1,22 @@
-.desc {
+.book {
   margin-top: 2rem;
-  text-align: center;
 
-  .bookCover {
-    max-width: 350px;
-    margin-bottom: 20px;
-    border: 1px solid gray;
-    box-shadow: 3px 3px 10px gray;
+  .row1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    .bookCover {
+      flex-basis: 35%;
+      margin-bottom: 20px;
+      border: 1px solid gray;
+      box-shadow: 3px 3px 10px gray;
+    }
+    
+    .bookDesc {
+      flex-basis: 25%;
+      flex-grow: 2;
+    }
   }
 }

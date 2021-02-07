@@ -1,0 +1,50 @@
+.card {
+	margin-bottom: 0.5rem;
+	width: 50%;
+	overflow: hidden;
+
+	a {
+		display: flex;
+		width: 100%;
+		height: 100%;
+
+		>div {
+			flex-basis: 25%;
+		}
+
+		&:hover[href] {
+			text-decoration: none;
+		}
+
+		.metadata {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			padding: 8px 8px;
+
+			.title {
+				color: #000;
+				font-size: 18px;
+				font-weight: 500;
+			}
+
+			.attribution {
+				color: blue;
+				font-size: 13px;
+				font-weight: 500;
+				padding-top: 2px;
+			}
+
+			.summary {
+				color: #5a5a5a;
+				font-size: 14px;
+				padding-top: 2px;
+			}
+		}
+	}
+
+	&:hover {
+		background-color: fadeout(blue, 95%);
+		cursor: pointer;
+	}
+}
