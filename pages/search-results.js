@@ -3,7 +3,6 @@ import Layout from '../components/layout'
 import Card from '../components/card'
 import SearchModel from '../models/search'
 import style from '../styles/search-results.module.scss'
-import { withRouter } from 'next/router'
 
 const searchModel = new SearchModel({ host: 'http://localhost:3001/search' });
 
@@ -11,8 +10,8 @@ export default class SearchResults extends React.Component {
   state = {
     results: []
   }
-  static getInitialProps({query, router}) {
-    return {query, router};
+  static getInitialProps({query}) {
+    return {query};
   }
   componentDidUpdate = async (prevProps) => {
     if (this.props.query.q !== prevProps.query.q) {
