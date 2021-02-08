@@ -4,10 +4,9 @@ import Card from '../components/card'
 import SearchModel from '../models/search'
 import style from '../styles/search-results.module.scss'
 import Pagination from '../components/pagination'
+import { cleanPageNumber } from '../lib/utils'
 
 const searchModel = new SearchModel({ host: 'http://localhost:3001/v1/search' });
-
-//TODO Add in pagination
 
 export default class SearchResults extends React.Component {
   state = {
@@ -18,11 +17,13 @@ export default class SearchResults extends React.Component {
     return {query};
   }
   componentDidUpdate = async (prevProps) => {
-    if (this.props.query.q !== prevProps.query.q) {
+    if (
+      this.props.query.q !== prevProps.query.q ||
+      this.props.query.page !== prevProps.query.page
+    ) {
       await this.getResults();
     }
   }
-  
   componentDidMount = async () => {
     await this.getResults();
   }
@@ -31,7 +32,7 @@ export default class SearchResults extends React.Component {
 			return this.setState({ results: [] });
     }
     try {
-      let results = await searchModel.getResults(this.props.query.q);
+      let results = await searchModel.getResults(this.props.query.q, cleanPageNumber(this.props.query.page));
       this.setState({
         results: results.results,
         totalPages: results.totalPages,
@@ -50,7 +51,7 @@ export default class SearchResults extends React.Component {
           </section>
         }
         {this.state.results.length > 0 &&
-          <Pagination />
+          <Pagination query={this.props.query.q} currentPage={cleanPageNumber(this.props.query.page)} totalPages={this.state.totalPages} />
         }
       </Layout>
     )

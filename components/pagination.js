@@ -1,19 +1,28 @@
 import React from 'react'
 import style from '../styles/pagination.module.scss';
+import PageNumber from './page-number'
 import { withRouter } from 'next/router'
 
 class Pagination extends React.Component {
-  state = {
-  }
-  componentDidUpdate(prevProps) {
-    //if (this.props.value !== prevProps.value) {
-      //this.setState({inputValue: this.props.value});
-    //}
+  calculatePageNumbers() {
+    let pages = [];
+    for (let i = 1; i <= this.props.totalPages; i++) {
+      if (
+        i === 1 ||
+        i === this.props.totalPages ||
+        (i > this.props.currentPage - 4 && i < this.props.currentPage + 4)
+      ) {
+        pages.push(i);
+      }
+    }
+    return pages;
   }
   render () {
     return (
       <div className={style.wrapper}>
-        page numbers here
+        {this.calculatePageNumbers().map((page) => 
+          <PageNumber key={page} value={page} query={this.props.query} link={page !== this.props.currentPage} />
+        )}
       </div>
     )
   }
