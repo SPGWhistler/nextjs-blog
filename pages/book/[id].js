@@ -7,7 +7,7 @@ import Author from '../../components/author'
 import Description from '../../components/description'
 import Title from '../../components/title'
 
-const bookModel = new BookModel({ host: 'http://localhost:3001/v1/books' });
+const bookModel = new BookModel({ host: 'https://nesttest.spgwhistler.repl.co/v1/books' });
 
 export default class Book extends React.Component {
   state = {

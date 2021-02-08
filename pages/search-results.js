@@ -6,7 +6,7 @@ import style from '../styles/search-results.module.scss'
 import Pagination from '../components/pagination'
 import { cleanPageNumber } from '../lib/utils'
 
-const searchModel = new SearchModel({ host: 'http://localhost:3001/v1/search' });
+const searchModel = new SearchModel({ host: 'https://nesttest.spgwhistler.repl.co/v1/search' });
 
 export default class SearchResults extends React.Component {
   state = {
