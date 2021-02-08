@@ -4,7 +4,7 @@ import Card from '../components/card'
 import SearchModel from '../models/search'
 import style from '../styles/search-results.module.scss'
 
-const searchModel = new SearchModel({ host: 'http://localhost:3001/search' });
+const searchModel = new SearchModel({ host: 'http://localhost:3001/v1/search' });
 
 //TODO Add in pagination
 

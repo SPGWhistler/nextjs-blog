@@ -2,8 +2,9 @@ import React from 'react'
 import style from '../styles/search-input.module.scss';
 import { KEY_CODES } from '../constants/keycodes';
 import { getQueryParam } from '../lib/utils'
+import { withRouter } from 'next/router'
 
-export default class SearchInput extends React.Component {
+class SearchInput extends React.Component {
   state = {
     inputValue: ''
   }
@@ -28,7 +29,8 @@ export default class SearchInput extends React.Component {
     this.props.onInput && this.props.onInput(value);
   }
   handleSubmit = () => {
-    this.props.history.push(`/search-results?q=${this.state.inputValue}`);
+    this.props.router.push(`/search-results?q=${this.state.inputValue}`);
+    this.props.onSearch && this.props.onSearch(this.state.inputValue);
   }
 	handleKeyDown = (e) => {
     let preventDefault = true;
@@ -52,8 +54,10 @@ export default class SearchInput extends React.Component {
           onInput={this.handleInput}
           onKeyDown={this.handleKeyDown}
         />
-        <button className={style.searchButton}>Search</button>
+        <button className={style.searchButton} onClick={this.handleSubmit} >Search</button>
       </div>
     )
   }
 }
+
+export default withRouter(SearchInput)
