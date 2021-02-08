@@ -1,1 +1,1 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+A quick sample next.js app to demonstrate a good reads proxy api.

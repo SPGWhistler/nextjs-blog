@@ -3,6 +3,12 @@ import style from '../styles/pagination.module.scss';
 import PageNumber from './page-number'
 import { withRouter } from 'next/router'
 
+/**
+ * A pagination component to display page numbers.
+ * @param {number} totalPages The total number of pages.
+ * @param {number} currentPage The page that is currently being displayed.
+ * @param {string} query The search query to use for links.
+ */
 class Pagination extends React.Component {
   calculatePageNumbers() {
     let pages = [];

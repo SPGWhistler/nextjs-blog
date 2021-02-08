@@ -5,8 +5,11 @@ import SearchSuggestion from './search-suggestion'
 import SearchModel from '../models/search'
 import { debounce } from '../lib/utils'
 
-const searchModel = new SearchModel({ host: 'https://nesttest.spgwhistler.repl.co/v1/search-suggest' });
+const searchModel = new SearchModel({ host: `https://nesttest.spgwhistler.repl.co/v1/search-suggest` });
 
+/**
+ * Display a search component (input box, button, and search suggestions).
+ */
 export default class Search extends React.Component {
   state = {
     suggestions: [],

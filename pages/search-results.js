@@ -6,8 +6,13 @@ import style from '../styles/search-results.module.scss'
 import Pagination from '../components/pagination'
 import { cleanPageNumber } from '../lib/utils'
 
-const searchModel = new SearchModel({ host: 'https://nesttest.spgwhistler.repl.co/v1/search' });
+const searchModel = new SearchModel({ host: `https://nesttest.spgwhistler.repl.co/v1/search` });
 
+/**
+ * The search results page.
+ * @param {string} q The search query to return results for.
+ * @param {string} page The page number to return as a string.
+ */
 export default class SearchResults extends React.Component {
   state = {
     results: [],

@@ -1,9 +1,14 @@
 import React from 'react'
 import style from '../styles/search-input.module.scss';
-import { KEY_CODES } from '../constants/keycodes';
 import { getQueryParam } from '../lib/utils'
 import { withRouter } from 'next/router'
 
+/**
+ * A search input box and button.
+ * @param {string} value The value to display in the input box.
+ * @param {function} onInput A function to call when the input form is changed.
+ * @param {function} onSearch A function to call when the form is submitted.
+ */
 class SearchInput extends React.Component {
   state = {
     inputValue: ''
@@ -34,7 +39,7 @@ class SearchInput extends React.Component {
   }
 	handleKeyDown = (e) => {
     let preventDefault = true;
-		if (e.keyCode === KEY_CODES.CARRIAGE_RETURN) {
+		if (e.keyCode === 13) {
 			this.handleSubmit();
 		}
 		else {

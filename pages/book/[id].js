@@ -7,8 +7,12 @@ import Author from '../../components/author'
 import Description from '../../components/description'
 import Title from '../../components/title'
 
-const bookModel = new BookModel({ host: 'https://nesttest.spgwhistler.repl.co/v1/books' });
+const bookModel = new BookModel({ host: `https://nesttest.spgwhistler.repl.co/v1/books` });
 
+/**
+ * Display information about a book.
+ * @param {string} id The book id to look up.
+ */
 export default class Book extends React.Component {
   state = {
     result: {}

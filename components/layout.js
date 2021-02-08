@@ -1,10 +1,15 @@
 import Head from 'next/head'
-import styles from '../styles/layout.module.css'
+import styles from '../styles/layout.module.scss'
 import Link from 'next/link'
 import Search from '../components/search'
 
 export const siteTitle = 'GoodReads Quick Search'
 
+/**
+ * This is a wrapper so that each page can have the same look and feel.
+ * @param {array} children The children components to display.
+ * @param {bool} home If this is the home page or not.
+ */
 export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>

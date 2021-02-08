@@ -1,5 +1,8 @@
 import { cleanPageNumber } from '../lib/utils'
 
+/**
+ * A simple model for the search and search-suggest endpoint.
+ */
 export default class SearchModel {
   constructor(config) {
     this.config = config;

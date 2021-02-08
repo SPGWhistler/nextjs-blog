@@ -1,8 +1,10 @@
 import Layout from '../components/layout'
 import styles from '../styles/index.module.scss'
 
-
-export default function Home({ allPostsData }) {
+/**
+ * The home page.
+ */
+export default function Home() {
   return (
     <Layout home>
       <div className={styles.desc}>

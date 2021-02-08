@@ -2,6 +2,10 @@ import style from '../styles/author.module.scss'
 import CardImage from './card-image';
 import { truncateText } from '../lib/utils'
 
+/**
+ * Display an author card.
+ * @param {} author The author object to display.
+ */
 export default function Author({author}) {
   return (
     <div className={style.card}>

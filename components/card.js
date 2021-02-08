@@ -3,6 +3,10 @@ import CardImage from './card-image';
 import Link from 'next/link'
 import { truncateText } from '../lib/utils'
 
+/**
+ * Show a card component, with an image, title, and author.
+ * @param {} result The result object to use for this card.
+ */
 export default function Card({result}) {
   return (
     <div className={style.card}>
