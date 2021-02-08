@@ -6,7 +6,7 @@ import style from '../styles/search-results.module.scss'
 import Pagination from '../components/pagination'
 import { cleanPageNumber } from '../lib/utils'
 
-const searchModel = new SearchModel({ host: `https://nesttest.spgwhistler.repl.co/v1/search` });
+const searchModel = new SearchModel({ host: `https://nesttest-1.spgwhistler.repl.co/v1/search` });
 
 /**
  * The search results page.
@@ -38,6 +38,7 @@ export default class SearchResults extends React.Component {
     }
     try {
       let results = await searchModel.getResults(this.props.query.q, cleanPageNumber(this.props.query.page));
+      debugger;
       this.setState({
         results: results.results,
         totalPages: results.totalPages,

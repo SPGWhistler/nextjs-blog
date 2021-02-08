@@ -5,7 +5,8 @@ import SearchSuggestion from './search-suggestion'
 import SearchModel from '../models/search'
 import { debounce } from '../lib/utils'
 
-const searchModel = new SearchModel({ host: `https://nesttest.spgwhistler.repl.co/v1/search-suggest` });
+const searchModel = new SearchModel({ host: `https://nesttest-1.spgwhistler.repl.co/v1/search-suggest` });
+
 
 /**
  * Display a search component (input box, button, and search suggestions).
