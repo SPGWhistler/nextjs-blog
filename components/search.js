@@ -19,7 +19,6 @@ export default class Search extends React.Component {
     this.setState({ suggestions: [] });
   }
   onInput = async (value) => {
-    this.setState({'query': value});
     if (!(value && value.trim())) {
       return this.clearSuggestions();
     }
